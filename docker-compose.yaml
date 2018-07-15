@@ -36,7 +36,7 @@ services:
       - /opt/kapacitor/config/:/etc/kapacitor/
     ports:
       # The API for Kapacitor is served on port 9092
-      - "9092:9092"
+      - "9095:9095"
 
   chronograf:
     container_name: chronograf
