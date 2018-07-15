@@ -3,7 +3,7 @@ version: '2'
 services:
   influxdb:
     # Full tag list: https://hub.docker.com/r/library/influxdb/tags/
-    container_name: influxdb
+    container_name: tick_influxdb
     image: influxdb:latest
     ports:
       - 8086:8086
@@ -17,6 +17,7 @@ services:
 
   telegraf:
     # Full tag list: https://hub.docker.com/r/library/telegraf/tags/
+    container_name: tick_telegraph
     image: telegraf:latest
     volumes:
       # Mount for telegraf configuration
@@ -30,6 +31,7 @@ services:
 
   kapacitor:
     # Full tag list: https://hub.docker.com/r/library/kapacitor/tags/
+    container_name: tick_kapacitor
     image: kapacitor:latest
     volumes:
       - /opt/kapacitor/data/:/var/lib/kapacitor
@@ -39,7 +41,7 @@ services:
       - "9095:9095"
 
   chronograf:
-    container_name: chronograf
+    container_name: tick_chronograf
     image: chronograf:latest
     ports:
       - 192.168.1.22:8888:8888
